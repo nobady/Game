@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/y1280"
+    android:layout_height="@dimen/x720"
+    tools:context=".SecondMenuActivity">
+
+
+    <ImageView
+        android:id="@+id/main_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg" />
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/y97"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/second_menu_bg"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/menu_01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:clickable="true"
+                android:src="@drawable/second_menu_01_selector"
+                />
+            <ImageView
+                android:id="@+id/menu_02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:clickable="true"
+                android:src="@drawable/second_menu_02_selector"
+                />
+            <ImageView
+                android:id="@+id/menu_03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:clickable="true"
+                android:src="@drawable/second_menu_03_selector"
+                />
+            <ImageView
+                android:id="@+id/menu_04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:clickable="true"
+                android:src="@drawable/second_menu_04_selector"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/item_01"
+                    style="@style/second_item_style"
+                    android:src="@drawable/second_01" />
+
+                <ImageView
+                    android:id="@+id/item_02"
+                    style="@style/second_item_style"
+                    android:src="@drawable/second_02" />
+
+                <ImageView
+                    android:id="@+id/item_03"
+                    style="@style/second_item_style"
+                    android:src="@drawable/second_03" />
+
+                <ImageView
+                    android:id="@+id/item_04"
+                    style="@style/second_item_style"
+                    android:src="@drawable/second_04" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/y10"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/item_05"
+                    style="@style/second_item_style"
+                    android:src="@drawable/second_05" />
+
+                <ImageView
+                    android:id="@+id/item_06"
+                    style="@style/second_item_style"
+                    android:src="@drawable/second_06" />
+
+                <ImageView
+                    android:id="@+id/item_07"
+                    style="@style/second_item_style"
+                    android:src="@drawable/second_07" />
+
+                <ImageView
+                    android:id="@+id/item_08"
+                    style="@style/second_item_style"
+                    android:src="@drawable/second_08" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
