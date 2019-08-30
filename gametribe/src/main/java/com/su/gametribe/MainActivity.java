@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity implements FocusViewMonitor.
         tab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DisplayUtils.showToast(context, "缤纷世界");
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this,SecondMenuActivity.class);
                 startActivity(intent);
@@ -68,25 +67,21 @@ public class MainActivity extends AppCompatActivity implements FocusViewMonitor.
         tab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DisplayUtils.showToast(context, "动作冒险");
             }
         });
         tab3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DisplayUtils.showToast(context, "休闲益智");
             }
         });
         tab4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DisplayUtils.showToast(context, "游戏历史");
             }
         });
         tab5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DisplayUtils.showToast(context, "个人中心");
             }
         });
 
@@ -148,60 +143,53 @@ public class MainActivity extends AppCompatActivity implements FocusViewMonitor.
             @Override
             public void onClick(View v) {
 
-                DisplayUtils.showToast(context, "cent01");
+                Utils.startApp(MainActivity.this,"com.base","TheJeepAndroid.apk");
             }
         });
         cent02.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                DisplayUtils.showToast(context, "cent02");
+                Utils.startApp(MainActivity.this,"com.sf","Sf.apk");
             }
         });
         cent03.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                DisplayUtils.showToast(context, "cent03");
+                Utils.startApp(MainActivity.this,"org.cocos2d.Flower","Flower-release-signed.apk");
             }
         });
         cent04.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                DisplayUtils.showToast(context, "cent04");
+                Utils.startApp(MainActivity.this,"org.cocos2d.Quickspot","Quickspot-release-signed.apk");
             }
         });
         cent05.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                DisplayUtils.showToast(context, "cent05");
+                Utils.startApp(MainActivity.this,"com.puzzlegame","PuzzleGame.apk");
             }
         });
         cent06.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                DisplayUtils.showToast(context, "cent06");
+                Utils.startApp(MainActivity.this,"org.cocos2d.JumpingRat","JumpingRat-release-signed.apk");
             }
         });
         cent07.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                DisplayUtils.showToast(context, "cent07");
+                Utils.startApp(MainActivity.this,"com.closelamp","CloseLamp.apk");
             }
         });
     }
 
-    public void openApk() {
-        ComponentName componetName = new ComponentName("com.aiwangame.hbcj", "com.unity3d.player.UnityPlayerActivity");
-        Intent intent = new Intent();
-        intent.setComponent(componetName);
-        startActivity(intent);
-
-    }
 
     @Override
     public int borderStrokeWidth(View focusedView) {
@@ -225,6 +213,21 @@ public class MainActivity extends AppCompatActivity implements FocusViewMonitor.
                 || focusedView == findViewById(R.id.left_bottom2)
                 || focusedView == findViewById(R.id.top_mid1)
                 || focusedView == findViewById(R.id.top_mid2)
+                || focusedView == findViewById(R.id.ll_01)
+                || focusedView == findViewById(R.id.ll_02)
+                || focusedView == findViewById(R.id.ll_03)
+                || focusedView == findViewById(R.id.ll_04)
+                || focusedView == findViewById(R.id.ll_05)
+                || focusedView == findViewById(R.id.ll_021)
+                || focusedView == findViewById(R.id.ll_022)
+                || focusedView == findViewById(R.id.ll_023)
+                || focusedView == findViewById(R.id.ll_024)
+                || focusedView == findViewById(R.id.ll_025)
+                || focusedView == findViewById(R.id.ll_031)
+                || focusedView == findViewById(R.id.ll_032)
+                || focusedView == findViewById(R.id.ll_033)
+                || focusedView == findViewById(R.id.ll_034)
+                || focusedView == findViewById(R.id.ll_035)
                 || focusedView == findViewById(R.id.top_right);
         return custom;
     }
@@ -237,6 +240,21 @@ public class MainActivity extends AppCompatActivity implements FocusViewMonitor.
                 || focusedView == findViewById(R.id.top_mid1)
                 || focusedView == findViewById(R.id.top_mid2)
                 || focusedView == findViewById(R.id.top_right)
+            || focusedView == findViewById(R.id.ll_01)
+            || focusedView == findViewById(R.id.ll_02)
+            || focusedView == findViewById(R.id.ll_03)
+            || focusedView == findViewById(R.id.ll_04)
+            || focusedView == findViewById(R.id.ll_05)
+            || focusedView == findViewById(R.id.ll_021)
+            || focusedView == findViewById(R.id.ll_022)
+            || focusedView == findViewById(R.id.ll_023)
+            || focusedView == findViewById(R.id.ll_024)
+            || focusedView == findViewById(R.id.ll_025)
+            || focusedView == findViewById(R.id.ll_031)
+            || focusedView == findViewById(R.id.ll_032)
+            || focusedView == findViewById(R.id.ll_033)
+            || focusedView == findViewById(R.id.ll_034)
+            || focusedView == findViewById(R.id.ll_035)
                 || focusedView == findViewById(R.id.bottom_withotuse_view);
         return custom;
     }

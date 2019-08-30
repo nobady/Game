@@ -208,6 +208,7 @@
                     android:background="@drawable/bottom_01">
 
                     <LinearLayout
+                        android:id="@+id/ll_01"
                         style="@style/bottom_container_style"
                         android:layout_height="@dimen/x135"
                         android:layout_marginTop="@dimen/x120">
@@ -225,7 +226,9 @@
                             android:src="@drawable/num_01_img" />
                     </LinearLayout>
 
-                    <LinearLayout style="@style/bottom_container_style">
+                    <LinearLayout
+                        android:id="@+id/ll_02"
+                        style="@style/bottom_container_style">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -238,7 +241,9 @@
                             android:text="宠物危机" />
                     </LinearLayout>
 
-                    <LinearLayout style="@style/bottom_container_style">
+                    <LinearLayout
+                        android:id="@+id/ll_03"
+                        style="@style/bottom_container_style">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -251,7 +256,9 @@
                             android:text="咸蛋出击" />
                     </LinearLayout>
 
-                    <LinearLayout style="@style/bottom_container_style">
+                    <LinearLayout
+                        android:id="@+id/ll_04"
+                        style="@style/bottom_container_style">
 
                         <TextView
                             style="@style/bottom_num_text_style"
@@ -262,7 +269,9 @@
                             android:text="球球大作战" />
                     </LinearLayout>
 
-                    <LinearLayout style="@style/bottom_container_style">
+                    <LinearLayout
+                        android:id="@+id/ll_05"
+                        style="@style/bottom_container_style">
 
                         <TextView
                             style="@style/bottom_num_text_style"
@@ -279,6 +288,7 @@
                     android:background="@drawable/bottom_02">
 
                     <LinearLayout
+                        android:id="@+id/ll_021"
                         style="@style/bottom_container_style"
                         android:layout_height="@dimen/y135"
                         android:layout_marginTop="@dimen/y120">
@@ -296,7 +306,9 @@
                             android:src="@drawable/num_02_img" />
                     </LinearLayout>
 
-                    <LinearLayout style="@style/bottom_container_style">
+                    <LinearLayout
+                        android:id="@+id/ll_022"
+                        style="@style/bottom_container_style">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -309,7 +321,9 @@
                             android:text="跳呀跳" />
                     </LinearLayout>
 
-                    <LinearLayout style="@style/bottom_container_style">
+                    <LinearLayout
+                        android:id="@+id/ll_023"
+                        style="@style/bottom_container_style">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -322,7 +336,9 @@
                             android:text="迷你世界杯" />
                     </LinearLayout>
 
-                    <LinearLayout style="@style/bottom_container_style">
+                    <LinearLayout
+                        android:id="@+id/ll_024"
+                        style="@style/bottom_container_style">
 
                         <TextView
                             style="@style/bottom_num_text_style"
@@ -333,7 +349,9 @@
                             android:text="深海养鱼馆" />
                     </LinearLayout>
 
-                    <LinearLayout style="@style/bottom_container_style">
+                    <LinearLayout
+                        android:id="@+id/ll_025"
+                        style="@style/bottom_container_style">
 
                         <TextView
                             style="@style/bottom_num_text_style"
@@ -350,6 +368,7 @@
                     android:background="@drawable/bottom_03">
 
                     <LinearLayout
+                        android:id="@+id/ll_031"
                         style="@style/bottom_container_style"
                         android:layout_height="@dimen/y135"
                         android:layout_marginTop="@dimen/y120">
@@ -367,7 +386,9 @@
                             android:src="@drawable/num_03_img" />
                     </LinearLayout>
 
-                    <LinearLayout style="@style/bottom_container_style">
+                    <LinearLayout
+                        android:id="@+id/ll_032"
+                        style="@style/bottom_container_style">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -380,7 +401,9 @@
                             android:text="僵尸来袭" />
                     </LinearLayout>
 
-                    <LinearLayout style="@style/bottom_container_style">
+                    <LinearLayout
+                        android:id="@+id/ll_033"
+                        style="@style/bottom_container_style">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -393,7 +416,9 @@
                             android:text="炫斗三国" />
                     </LinearLayout>
 
-                    <LinearLayout style="@style/bottom_container_style">
+                    <LinearLayout
+                        android:id="@+id/ll_034"
+                        style="@style/bottom_container_style">
 
                         <TextView
                             style="@style/bottom_num_text_style"
@@ -404,7 +429,9 @@
                             android:text="战机联盟" />
                     </LinearLayout>
 
-                    <LinearLayout style="@style/bottom_container_style">
+                    <LinearLayout
+                        android:id="@+id/ll_035"
+                        style="@style/bottom_container_style">
 
                         <TextView
                             style="@style/bottom_num_text_style"
