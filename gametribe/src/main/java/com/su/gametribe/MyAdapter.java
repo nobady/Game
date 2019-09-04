@@ -15,6 +15,7 @@
  */
 package com.su.gametribe;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Point;
 import android.support.v7.widget.RecyclerView;
@@ -36,7 +37,7 @@ import java.util.Map;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     // 数据集
-    private Context mContext;
+    private Activity mContext;
     private int id;
     private View.OnFocusChangeListener mOnFocusChangeListener;
     private OnBindListener onBindListener;
@@ -70,10 +71,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     public MyAdapter(Context context) {
         super();
-        mContext = context;
     }
 
-    public MyAdapter(Context context, int id) {
+    public MyAdapter(Activity context, int id) {
         super();
         mContext = context;
         this.id = id;
@@ -102,11 +102,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         if (onBindListener != null) {
             onBindListener.onBind(viewHolder.itemView, i);
         }
-        viewHolder.itemView.setOnFocusChangeListener(mOnFocusChangeListener);
+//        viewHolder.itemView.setOnFocusChangeListener(mOnFocusChangeListener);
         viewHolder.mPostImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Utils.startApp(view.getContext(),keys.get(i),maps.get(keys.get(i)));
+                Utils.startApp(mContext,keys.get(i),maps.get(keys.get(i)));
             }
         });
     }
