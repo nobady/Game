@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements FocusViewMonitor.
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this,SecondMenuActivity.class);
+                intent.setClass(MainActivity.this,DetailListActivity.class);
                 startActivity(intent);
             }
         });
@@ -296,8 +296,7 @@ public class MainActivity extends AppCompatActivity implements FocusViewMonitor.
             || focusedView == findViewById(R.id.ll_032)
             || focusedView == findViewById(R.id.ll_033)
             || focusedView == findViewById(R.id.ll_034)
-            || focusedView == findViewById(R.id.ll_035)
-                || focusedView == findViewById(R.id.bottom_withotuse_view);
+            || focusedView == findViewById(R.id.ll_035);
         return custom;
     }
 }

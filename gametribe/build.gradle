@@ -61,10 +61,7 @@ dependencies {
 //    implementation 'com.android.support:cardview-v7:22.2.1'
 //    implementation 'com.android.support:recyclerview-v7:22.2.1'
 //    implementation 'com.owen:tv-recyclerview:2.0.5'
-    implementation('com.owen:tv-focusborder:1.1.1', {
-        exclude group: 'com.android.support'
-    }
-    )
+    implementation 'com.owen:tv-focusborder:1.1.1'
     implementation 'com.owen:tv-widget:1.0.1'
     implementation project(path: ':tv-recyclerview')
 

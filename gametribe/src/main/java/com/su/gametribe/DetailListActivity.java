@@ -19,6 +19,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -193,9 +195,10 @@ public class DetailListActivity extends Activity implements OptionItemAdapter.On
     private void loadDataForRecyclerViewGridLayout() {
 
         mRecyclerView = (TvRecyclerView) findViewById(R.id.list);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(GridLayoutManager.Orientation.HORIZONTAL);
-        gridLayoutManager.setNumColumns(4);
-        mRecyclerView.setLayoutManager(gridLayoutManager);
+        MetroGridLayoutManager metroGridLayoutManager = new  MetroGridLayoutManager(MetroGridLayoutManager.Orientation.VERTICAL,4);
+//        GridLayoutManager gridLayoutManager = new GridLayoutManager(GridLayoutManager.Orientation.HORIZONTAL);
+//        gridLayoutManager.setNumColumns(4);
+        mRecyclerView.setLayoutManager(metroGridLayoutManager);
         mRecyclerView.setSpacingWithMargins(10, 20);//设置行列间距
         createData(mRecyclerView, R.layout.detail_list_item);
     }
@@ -241,7 +244,8 @@ public class DetailListActivity extends Activity implements OptionItemAdapter.On
 
             @Override
             public void onItemSelected(TvRecyclerView parent, View itemView, int position) {
-                onMoveFocusBorder(itemView, 1.1f, 10);
+
+                onMoveFocusBorder(itemView.findViewById(R.id.iv_image), 1.1f, 10);
             }
 
             @Override
@@ -266,7 +270,7 @@ public class DetailListActivity extends Activity implements OptionItemAdapter.On
                 if (mRecyclerView.hasFocus() && !hasFocus) {
                     return;
                 }
-                mFocusBorder.setVisible(hasFocus);
+                mFocusBorder.setVisible(false);
             }
         });
 
