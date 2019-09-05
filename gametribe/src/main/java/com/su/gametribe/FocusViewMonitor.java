@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -440,6 +441,7 @@ public class FocusViewMonitor {
 
     static void logger(String msg) {
 //        System.out.println(msg);
+        Log.e("FocusView",msg);
     }
 
 

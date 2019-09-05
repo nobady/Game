@@ -3,15 +3,18 @@ package com.su.gametribe;
 import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements FocusViewMonitor.
 
     private Context context;
     private FocusViewMonitor monitor;
+    private AddNewPackageBroadcast mAddNewPackageBroadcast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +59,17 @@ public class MainActivity extends AppCompatActivity implements FocusViewMonitor.
         monitor.setFocusBorderProvider(this);
         monitor.start();
 
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("android.intent.action.PACKAGE_ADDED");
+        mAddNewPackageBroadcast = new AddNewPackageBroadcast();
+        registerReceiver(mAddNewPackageBroadcast,filter);
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(mAddNewPackageBroadcast);
     }
 
     private void checkPermission(){
@@ -298,5 +313,16 @@ public class MainActivity extends AppCompatActivity implements FocusViewMonitor.
             || focusedView == findViewById(R.id.ll_034)
             || focusedView == findViewById(R.id.ll_035);
         return custom;
+    }
+
+    class AddNewPackageBroadcast extends BroadcastReceiver{
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String packageName = intent.getData().getSchemeSpecificPart();
+            if (TextUtils.equals(Utils.mPackageName,packageName)){
+                Utils.gotoApp(context,packageName);
+            }
+        }
     }
 }

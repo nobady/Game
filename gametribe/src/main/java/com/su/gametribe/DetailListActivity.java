@@ -16,13 +16,17 @@
 package com.su.gametribe;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
@@ -71,6 +75,7 @@ public class DetailListActivity extends Activity implements OptionItemAdapter.On
     protected FocusBorder mFocusBorder;
     private TvRecyclerView mMenuView;
     private TvRecyclerView mRecyclerView;
+    private AddNewPackageBroadcast mAddNewPackageBroadcast;
 
     private void initBinfenData() {
         Map<String, String> map = new HashMap<>();
@@ -151,6 +156,17 @@ public class DetailListActivity extends Activity implements OptionItemAdapter.On
         loadRecyclerViewMenuItem();
         loadDataForRecyclerViewGridLayout();
         setListener();
+
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("android.intent.action.PACKAGE_ADDED");
+        mAddNewPackageBroadcast = new AddNewPackageBroadcast();
+        registerReceiver(mAddNewPackageBroadcast,filter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(mAddNewPackageBroadcast);
     }
 
     private void initBordor() {
@@ -170,7 +186,7 @@ public class DetailListActivity extends Activity implements OptionItemAdapter.On
             //不要闪光动画
             //.noShimmer()
             //闪光颜色
-            .shimmerColor(Color.parseColor("#66FFFFFF"))
+            .shimmerColor(Color.parseColor("#FFFF00"))
             //闪光动画时长
             .shimmerDuration(1000)
             //不要呼吸灯效果
@@ -219,11 +235,14 @@ public class DetailListActivity extends Activity implements OptionItemAdapter.On
         adapter.setOnBindListener(this);
     }
 
+    private int mCurrentIndex = 0;
+
     @Override
     public void onBind(View view, int i) {
         if (i == 3) {
             return;
         }
+        mCurrentIndex = i;
         mAdapter.setIconIds(list.get(i));
         mAdapter.setKeys(new ArrayList<String>(mDatas.get(i).keySet()));
         mAdapter.setMaps(mDatas.get(i));
@@ -250,7 +269,9 @@ public class DetailListActivity extends Activity implements OptionItemAdapter.On
 
             @Override
             public void onItemClick(TvRecyclerView parent, View itemView, int position) {
-//                Utils.startApp(DetailListActivity.this,keys.get(i),maps.get(keys.get(i)));
+                ArrayList<String> strings = new ArrayList<>(mDatas.get(mCurrentIndex).keySet());
+                Map<String, String> maps = mDatas.get(mCurrentIndex);
+                Utils.startApp(DetailListActivity.this,strings.get(position),maps.get(strings.get(position)));
             }
         });
 
@@ -299,6 +320,17 @@ public class DetailListActivity extends Activity implements OptionItemAdapter.On
         @Override
         public void onBindItemHolder(CommonRecyclerViewHolder helper, Object item, int position) {
 
+        }
+    }
+
+    class AddNewPackageBroadcast extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String packageName = intent.getData().getSchemeSpecificPart();
+            if (TextUtils.equals(Utils.mPackageName,packageName)){
+                Utils.gotoApp(context,packageName);
+            }
         }
     }
 }

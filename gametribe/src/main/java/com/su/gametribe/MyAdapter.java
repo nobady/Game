@@ -103,12 +103,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             onBindListener.onBind(viewHolder.itemView, i);
         }
 //        viewHolder.itemView.setOnFocusChangeListener(mOnFocusChangeListener);
-        viewHolder.mPostImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Utils.startApp(mContext,keys.get(i),maps.get(keys.get(i)));
-            }
-        });
+//        viewHolder.mPostImg.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Utils.startApp(mContext,keys.get(i),maps.get(keys.get(i)));
+//            }
+//        });
     }
 
     @Override

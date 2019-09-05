@@ -443,13 +443,13 @@
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-            <View
-                android:id="@+id/bottom_withotuse_view"
-                android:layout_width="0px"
-                android:layout_height="0px"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:nextFocusUp="@id/cent_04"/>
+<!--            <View-->
+<!--                android:id="@+id/bottom_withotuse_view"-->
+<!--                android:layout_width="0px"-->
+<!--                android:layout_height="0px"-->
+<!--                android:focusable="true"-->
+<!--                android:focusableInTouchMode="true"-->
+<!--                android:nextFocusUp="@id/cent_04"/>-->
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
