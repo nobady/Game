@@ -129,7 +129,6 @@ public class TvRecyclerView extends RecyclerView implements View.OnClickListener
 //        setDescendantFocusability(FOCUS_BLOCK_DESCENDANTS);
         setFocusable(true);
         setFocusableInTouchMode(true);
-        
         //修复adapter.notifyItemChanged时焦点闪烁的问题
         if(null != getItemAnimator()) {
             ((SimpleItemAnimator) getItemAnimator()).setSupportsChangeAnimations(false);
