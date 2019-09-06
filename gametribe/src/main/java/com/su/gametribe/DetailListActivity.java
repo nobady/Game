@@ -76,6 +76,7 @@ public class DetailListActivity extends Activity implements OptionItemAdapter.On
     private TvRecyclerView mMenuView;
     private TvRecyclerView mRecyclerView;
     private AddNewPackageBroadcast mAddNewPackageBroadcast;
+    private int mIndex;
 
     private void initBinfenData() {
         Map<String, String> map = new HashMap<>();
@@ -149,6 +150,7 @@ public class DetailListActivity extends Activity implements OptionItemAdapter.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detaillist);
 
+        mCurrentIndex = getIntent().getIntExtra("index", 0);
         initBinfenData();
         initDongwuData();
         initYizhiData();
@@ -221,9 +223,9 @@ public class DetailListActivity extends Activity implements OptionItemAdapter.On
 
     private void createData(RecyclerView recyclerView, int id) {
         mAdapter = new MyAdapter(this, id);
-        mAdapter.setIconIds(list.get(0));
-        mAdapter.setKeys(new ArrayList<String>(mDatas.get(0).keySet()));
-        mAdapter.setMaps(mDatas.get(0));
+        mAdapter.setIconIds(list.get(mCurrentIndex));
+        mAdapter.setKeys(new ArrayList<String>(mDatas.get(mCurrentIndex).keySet()));
+        mAdapter.setMaps(mDatas.get(mCurrentIndex));
 
         recyclerView.setAdapter(mAdapter);
     }
@@ -231,7 +233,6 @@ public class DetailListActivity extends Activity implements OptionItemAdapter.On
     private void createOptionItemData(RecyclerView recyclerView, int id) {
         OptionItemAdapter adapter = new OptionItemAdapter(this, id);
         recyclerView.setAdapter(adapter);
-        recyclerView.scrollToPosition(0);
         adapter.setOnBindListener(this);
     }
 
@@ -240,7 +241,7 @@ public class DetailListActivity extends Activity implements OptionItemAdapter.On
     @Override
     public void onBind(View view, int i) {
         if (i == 3) {
-            return;
+            i=1;
         }
         mCurrentIndex = i;
         mAdapter.setIconIds(list.get(i));
