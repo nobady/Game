@@ -97,9 +97,7 @@ public class MainActivity extends AppCompatActivity implements FocusViewMonitor.
         tab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(MainActivity.this,DetailListActivity.class);
-                startActivity(intent);
+                gotoSeconActivity(0);
             }
         });
         tab2.setOnClickListener(new View.OnClickListener() {
@@ -117,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements FocusViewMonitor.
         tab4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gotoSeconActivity(1);
+                gotoSeconActivity(3);
             }
         });
         tab5.setOnClickListener(new View.OnClickListener() {
@@ -237,7 +235,7 @@ public class MainActivity extends AppCompatActivity implements FocusViewMonitor.
     private void gotoSeconActivity(int index) {
         Intent intent = new Intent();
         intent.putExtra("index",index);
-        intent.setClass(MainActivity.this, DetailListActivity.class);
+        intent.setClass(MainActivity.this, SecondMenuActivity.class);
         startActivity(intent);
     }
 

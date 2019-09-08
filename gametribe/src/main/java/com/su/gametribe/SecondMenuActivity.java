@@ -1,11 +1,17 @@
 package com.su.gametribe;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -20,6 +26,7 @@ public class SecondMenuActivity extends AppCompatActivity implements FocusViewMo
     private List<Map<String,Integer>> list = new ArrayList<>();
     private int index = 0;
     private List<ImageView> mImageViewList;
+    private AddNewPackageBroadcast mAddNewPackageBroadcast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +36,15 @@ public class SecondMenuActivity extends AppCompatActivity implements FocusViewMo
         mMonitor.setFocusBorderProvider(this);
         mMonitor.start();
 
+        int currentIndex = getIntent().getIntExtra("index", 0);
+
+        LinearLayout view = findViewById(R.id.ll);
+        view.getChildAt(currentIndex).requestFocus();
+        if (currentIndex==3){
+            currentIndex=1;
+        }
+        index = currentIndex;
+
         initBinfenData();
         initDongwuData();
         initYizhiData();
@@ -36,28 +52,29 @@ public class SecondMenuActivity extends AppCompatActivity implements FocusViewMo
         findViewById(R.id.menu_01).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                index = 0;
+                SecondMenuActivity.this.index = 0;
                 setImage();
             }
         });
         findViewById(R.id.menu_02).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                index = 1;
+                SecondMenuActivity.this.index = 1;
                 setImage();
             }
         });
         findViewById(R.id.menu_03).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                index = 2;
+                SecondMenuActivity.this.index = 2;
                 setImage();
             }
         });
         findViewById(R.id.menu_04).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                SecondMenuActivity.this.index = 1;
+                setImage();
             }
         });
         ImageView item1 = (ImageView) findViewById(R.id.item_01);
@@ -76,6 +93,19 @@ public class SecondMenuActivity extends AppCompatActivity implements FocusViewMo
         mImageViewList.add(item6);
         mImageViewList.add(item7);
         setImage();
+
+
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("android.intent.action.PACKAGE_ADDED");
+        mAddNewPackageBroadcast = new AddNewPackageBroadcast();
+        registerReceiver(mAddNewPackageBroadcast,filter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(mAddNewPackageBroadcast);
+
     }
 
     private void setImage(){
@@ -200,5 +230,16 @@ public class SecondMenuActivity extends AppCompatActivity implements FocusViewMo
         iconMap.put("org.cocos2d.PushBox",R.drawable.txz);
         iconMap.put("org.cocos2d.IceCube",R.drawable.bfk);
         list.add(iconMap);
+    }
+
+    class AddNewPackageBroadcast extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String packageName = intent.getData().getSchemeSpecificPart();
+            if (TextUtils.equals(Utils.mPackageName,packageName)){
+                Utils.gotoApp(context,packageName);
+            }
+        }
     }
 }
