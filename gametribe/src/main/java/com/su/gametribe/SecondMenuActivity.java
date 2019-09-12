@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,7 +38,6 @@ public class SecondMenuActivity extends AppCompatActivity implements FocusViewMo
         mMonitor.start();
 
         int currentIndex = getIntent().getIntExtra("index", 0);
-
         LinearLayout view = findViewById(R.id.ll);
         view.getChildAt(currentIndex).requestFocus();
         if (currentIndex==3){
@@ -190,7 +190,7 @@ public class SecondMenuActivity extends AppCompatActivity implements FocusViewMo
 
     private void initDongwuData(){
         Map<String,String> map = new LinkedHashMap<>();
-        map.put("blackman.com.blackman","BlkMan.apk");
+        map.put("blackman.com.blkman","BlkMan.apk");
         map.put("com.base","TheJeepAndroid.apk");
         map.put("org.cocos2d.JumpingRat","JumpingRat-release-signed.apk");
         map.put("org.cocos2d.ClimbBuild","ClimbBuild-release-signed.apk");
@@ -200,7 +200,7 @@ public class SecondMenuActivity extends AppCompatActivity implements FocusViewMo
         mDatas.add(map);
 
         Map<String,Integer> iconMap = new LinkedHashMap<>();
-        iconMap.put("blackman.com.blackman",R.drawable.bpxd);
+        iconMap.put("blackman.com.blkman",R.drawable.bpxd);
         iconMap.put("com.base",R.drawable.fkxd);
         iconMap.put("org.cocos2d.JumpingRat",R.drawable.ttslxj);
         iconMap.put("org.cocos2d.ClimbBuild",R.drawable.bbdt);
