@@ -64,7 +64,7 @@ public class Utils {
         if (!downDir.exists()){
             downDir.mkdirs();
         }
-        XHttp.downLoad("http://202.99.114.152:32601/lobby/apks/"+name).savePath(downDir.getPath())
+        XHttp.downLoad("http://120.192.66.36:18014/epg-karaoke-ott-zte/apk/apks/"+name).savePath(downDir.getPath())
             .saveName(name).execute(new ProgressDialogCallback<String>(context){
             @Override
             public void onComplete(String path) {
