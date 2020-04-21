@@ -190,7 +190,8 @@ public class SecondMenuActivity extends AppCompatActivity implements FocusViewMo
 
     private void initDongwuData(){
         Map<String,String> map = new LinkedHashMap<>();
-        map.put("blackman.com.blkman","BlkMan.apk");
+//        map.put("com.parking","Parking.apk");
+        map.put("com.blackman","BlkMan.apk");
         map.put("com.base","TheJeepAndroid.apk");
         map.put("org.cocos2d.JumpingRat","JumpingRat-release-signed.apk");
         map.put("org.cocos2d.ClimbBuild","ClimbBuild-release-signed.apk");
@@ -200,7 +201,8 @@ public class SecondMenuActivity extends AppCompatActivity implements FocusViewMo
         mDatas.add(map);
 
         Map<String,Integer> iconMap = new LinkedHashMap<>();
-        iconMap.put("blackman.com.blkman",R.drawable.bpxd);
+//        iconMap.put("com.parking",R.drawable.nltcc);
+        iconMap.put("com.blackman",R.drawable.bpxd);
         iconMap.put("com.base",R.drawable.fkxd);
         iconMap.put("org.cocos2d.JumpingRat",R.drawable.ttslxj);
         iconMap.put("org.cocos2d.ClimbBuild",R.drawable.bbdt);
